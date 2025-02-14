@@ -14,9 +14,7 @@ function Home() {
       <div className="py-5">
         <img src="https://cdn-icons-png.flaticon.com/512/552/552448.png" alt="logoimg" id="logoimg" />
       </div>
-      <Navbar.Brand href="/" id="nomeHome">
-        AppMeteo
-      </Navbar.Brand>
+      <Navbar.Brand id="nomeHome">AppMeteo</Navbar.Brand>
       <Form
         className="d-flex mt-5 w-75 m-auto"
         onSubmit={() => {
