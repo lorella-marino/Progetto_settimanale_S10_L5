@@ -1,3 +1,5 @@
+import Error from "./Error";
+
 const API_key = "d1c6f05cf14ea3307519dc7478511e79";
 
 const Meteo = {
@@ -22,7 +24,7 @@ const Meteo = {
 
       return { weatherData, forecastData };
     } catch (error) {
-      console.error("Errore nel caricamento", error);
+      console.error(<Error />, error);
     }
   },
 };
