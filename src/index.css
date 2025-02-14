@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(211, 227, 230) !important;
+  font-family: "Fira Sans", serif !important;
+}
+
+.success {
+  background-color: rgb(45, 119, 136) !important;
+  border: none !important;
+}
+
+#logo {
+  font-weight: 600;
+  font-size: 2rem;
+  color: rgb(45, 119, 136);
+}
