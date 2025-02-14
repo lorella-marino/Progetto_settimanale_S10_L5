@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Meteo from "./Meteo";
 import Loading from "./Loading";
 import MyNavbar from "./MyNavbar";
+import { Col, Row } from "react-bootstrap";
 
 function Details() {
   const { city } = useParams();
@@ -44,45 +45,53 @@ function Details() {
   return (
     <>
       <MyNavbar />
-      <div className="container mt-4">
-        <h3 className=" py-1  ps-3 success text-white">
-          Meteo attuale a <strong>{city}</strong>
-        </h3>
-        <p className="textimp pt-1 ms-3">
-          <span className="me-1">🌡️</span> Temperatura: {weather.main.temp}°C
-        </p>
-        <p className="textimp">
-          <img
-            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-            alt={weather.weather[0].description}
-            id="icon"
-          />
-          {weather.weather[0].description}
-        </p>
+      <div className="container mt-4 ">
+        <Row xs={1} md={2}>
+          <Col>
+            <div className="success pt-1 text-white rounded-2">
+              <h3 className=" py-1  ps-3 success text-white">
+                Meteo attuale a <strong>{city}</strong>
+              </h3>
+              <p className="textimp pt-1 ms-3">
+                <span className="me-1">🌡️</span> Temperatura: {weather.main.temp}°C
+              </p>
+              <p className="textimp">
+                <img
+                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                  alt={weather.weather[0].description}
+                  id="icon"
+                />
+                {weather.weather[0].description}
+              </p>
+            </div>
+          </Col>
 
-        <div className="pt-4">
-          <h5 className=" py-1  ps-3 success text-white">Previsioni per i prossimi 5 giorni:</h5>
-          <div className="pt-1">
-            {forecast.map((item, index) => (
-              <div key={index} className="my-2">
-                <p className="ms-3 fs-6">{new Date(item.dt_txt).toLocaleDateString()}</p>
-                <p className="ms-3">
-                  <span className="me-2 ms-1">🌡️</span> Temperatura: {item.main.temp}°C
-                </p>
-                <p className="ms-2">
-                  {" "}
-                  <img
-                    src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-                    alt={item.weather[0].description}
-                    id="icon"
-                  />
-                  {item.weather[0].description}
-                </p>
-                <hr />
+          <Col>
+            <div>
+              <h5 className=" py-1  ps-3 success text-white  rounded-2">Previsioni per i prossimi 5 giorni:</h5>
+              <div className="pt-1">
+                {forecast.map((item, index) => (
+                  <div key={index} className="my-2">
+                    <p className="ms-3 fs-6">{new Date(item.dt_txt).toLocaleDateString()}</p>
+                    <p className="ms-3">
+                      <span className="me-2 ms-1">🌡️</span> Temperatura: {item.main.temp}°C
+                    </p>
+                    <p className="ms-2 mb-0">
+                      {" "}
+                      <img
+                        src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                        alt={item.weather[0].description}
+                        id="icon"
+                      />
+                      {item.weather[0].description}
+                    </p>
+                    <hr />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </Col>
+        </Row>
       </div>
     </>
   );

@@ -44,6 +44,7 @@ h5 {
 hr {
   color: #3b6eaf !important;
   border: 1px solid #3b6eaf !important;
+  margin: 0.5rem !important;
 }
 
 @media screen and (max-width: 768px) {
