@@ -2,16 +2,19 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "./components/MyNavbar";
 import MyFooter from "./components/MyFooter";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const App = () => {
+function App() {
   return (
-    <>
-      <div>
-        <MyNavbar />
-        <MyFooter />
-      </div>
-    </>
+    <BrowserRouter>
+      <MyNavbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <MyFooter />
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
