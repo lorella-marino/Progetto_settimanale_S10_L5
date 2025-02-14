@@ -18,7 +18,7 @@ function Home() {
         AppMeteo
       </Navbar.Brand>
       <Form
-        className="d-flex mt-5 w-50 m-auto"
+        className="d-flex mt-5 w-75 m-auto"
         onSubmit={() => {
           city && navigate(`/details/${city}`);
         }}
